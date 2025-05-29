@@ -17,6 +17,7 @@ export class ReactiveFormComponent {
   });
   validateForm:boolean = false;
   validateFormSubmit:boolean = false;
+  todoList:any[]=[];
   formSubmit(){
     if(this.contactForm.value.name == null || this.contactForm.value.email == null || this.contactForm.value.message == null){
       this.validateForm = true;
@@ -24,10 +25,20 @@ export class ReactiveFormComponent {
       this.validateForm = false;
       this.validateFormSubmit = true;
     }else{
-      this.validateForm = true;
-      
+      this.validateForm = true;  
     }
+    this.todoList.push({
+      id:this.contactForm.value,
+      name:this.contactForm.value.name,
+      email:this.contactForm.value.email,
+      message:this.contactForm.value.message,
+    })
     console.log(this.contactForm.value);
     console.log(this.contactForm);
+    console.log(this.todoList.values);
+  }
+  itemDelete(id:number):void{
+    this.todoList = this.todoList.filter(item=> item.id !== id);
+    console.log(id);
   }
 }

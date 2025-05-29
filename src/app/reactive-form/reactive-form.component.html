@@ -20,3 +20,25 @@
       <p *ngIf="validateFormSubmit" style="color: green; text-transform: capitalize;margin-top: 10px;">Thanks for contatc us</p>
     </form>
   </div>
+
+
+   <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        @for(todo of todoList; track todo.id){
+          <tr>
+            <td>{{todo.name}}</td>
+            <td>{{todo.email}}</td>
+            <td>{{todo.message}}</td>
+            <td><button style="background: red; color: white;" (click)="itemDelete(todo.id)">Delete</button></td>
+           </tr>
+        }
+    </tbody>
+  </table>
