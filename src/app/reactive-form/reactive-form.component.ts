@@ -38,7 +38,7 @@ export class ReactiveFormComponent {
     console.log(this.todoList.values);
   }
   itemDelete(id:number):void{
-    this.todoList = this.todoList.filter(item=> item.id !== id);
+    this.todoList.splice(id, 1);
     console.log(id);
   }
 }
